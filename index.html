@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/6a3163e4c5.js" crossorigin="anonymous"></script>
+    <title>Clinica</title>
+</head>
+<body>
+    
+    <!-- Encabezado de la pagina -->
+    <header>
+        <nav class="navbar bg-light">
+            <div class="container-fluid">
+                <span class="h5"><i class="fa-solid fa-house-chimney-medical"></i> Clinica</span>
+            </div>
+          </nav>
+    </header>
+
+    <!-- Contenido principal de la pagina -->
+    <main style="align-content: flex-start;">
+        <div class="position-absolute top-50 start-50 translate-middle" style="display: flex;">
+            <div class="card text-center" style="width: 23rem; margin:50px;">
+                <div class="card-body">
+                  <h5 class="card-title"><i class="fa-solid fa-user-doctor"></i> Personal medico</h5>
+                  <br>
+                  <button type="button" class="btn btn-primary" onclick="mostrarPersonal()"><i class="fa-solid fa-list"></i> Listar personal</button>
+                  <button type="button" class="btn btn-primary" onclick="listarTurnos()"><i class="fa-solid fa-list"></i> Listar turnos</button>
+                </div>
+            </div>
+            <div class="card text-center" style="width: 23rem; margin:50px;">
+                <div class="card-body">
+                  <h5 class="card-title"><i class="fa-solid fa-user"></i> Pacientes</h5>
+                  <br>
+                  <button type="button" class="btn btn-primary" onclick="mostrarPacientes()"><i class="fa-solid fa-list"></i> Listar pacientes</button>
+                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#agregarPaciente"><i class="fa-solid fa-user-plus"></i> Agregar paciente</button>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Formulario para cargar los pacientes -->
+        <form class="row g-3 needs-validation" novalidate>
+            <div class="modal fade" id="agregarPaciente" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Formulario</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1"></span>
+                                    <input id="nombre" type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" aria-describedby="basic-addon1">
+                                </div>
+                                
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon2"></span>
+                                    <input id="apellido" type="text" class="form-control" placeholder="Apellido" aria-label="Apellido" aria-describedby="basic-addon2">
+                                </div>
+                                
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon2"></span>
+                                    <input id="dni" type="number" class="form-control" placeholder="DNI" aria-label="DNI" aria-describedby="basic-addon2">
+                                </div>
+                                
+                                <label for="basic-url" class="form-label">Fecha de nacimiento</label>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon2"></span>
+                                    <input id="fechaNac" type="date" class="form-control" placeholder="Fecha de nacimiento" aria-label="Fecha de nacimiento" aria-describedby="basic-addon2">
+                                </div>
+                                
+                                <label for="basic-url" class="form-label">Area de atención</label>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon2"></span>
+                                    <select id="areaAtencion" class="form-select" aria-label="Default select example" required>
+                                        <option selected disabled value="">...</option>
+                                        <option value="Cirugia">Cirugia</option>
+                                        <option value="Traumatismo">Traumatismo</option>
+                                        <option value="Geriatria">Geriatria</option>
+                                        <option value="Pediatria">Pediatria</option>
+                                    </select>
+                                </div>
+    
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon2"></span>
+                                    <input id="obraSocial" type="text" class="form-control" placeholder="Obra social" aria-label="Obra social" aria-describedby="basic-addon2">
+                                </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <button type="button" class="btn btn-primary" onclick="ingresarPaciente()" data-bs-dismiss="modal">Agregar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <!-- Espacio donde se mostraran las listas (Personal, Turnos y pacientes) -->
+        <div class= "position-absolute bottom-0 start-0 " style="display: flex;">
+          <ul id="ul"></ul>
+          <ul id="ul2"></ul>
+        </div>
+
+        <script src="./main.js"></script>
+    </main>
+
+    <script src="./bootstrap.bundle.min.js"></script>
+</body>
+</html>
